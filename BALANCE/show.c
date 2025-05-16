@@ -1,4 +1,5 @@
 #include "show.h"
+#include "lidar.h"
 int Voltage_Show;
 unsigned char i;          
 unsigned char Send_Count; 
@@ -430,7 +431,7 @@ void oled_show(void)
 	
 			
 		 //显示当前小车是否允许控制//
-		 if(EN==1&&Flag_Stop==0)   	OLED_ShowString(45,50,"O N");  
+		 if(EN==1&&Flag_Stop==0)   	OLED_ShowString(45,50,"ON");  
 		 else                      	OLED_ShowString(45,50,"OFF"); 
 			
 																OLED_ShowNumber(75,50,Voltage_Show/100,2,12);
@@ -512,20 +513,23 @@ void APP_Show(void)
 		  
 	 }
 
-    else if(flag_show==0)
+			else if(flag_show==0)
 		 {
 			 //Send parameters to the APP and the APP will be displayed on the front page
 			 //发送参数到APP，APP在首页显示
-		   printf("{A%d:%d:%d:%d:%d}$",(u8)Left_Figure,(u8)Right_Figure,Voltage_Show,(u8)Left_Figure,(u8)Right_Figure);
+		   //printf("{A%d:%d:%d:%d:%d}$",(u8)Left_Figure,(u8)Right_Figure,Voltage_Show,(u8)Left_Figure,(u8)Right_Figure);
+			 printf("{1%h %h %h %h %h %h}$",Pack_SpeedData.header_0, Pack_SpeedData.speed_x, Pack_SpeedData.speed_y, Pack_SpeedData.speed_z,Pack_SpeedData.tail_0);
 		 }
 		 else
-	 {
-		 //Send parameters to the APP, the APP is displayed in the waveform interface
-		 //发送参数到APP，APP在波形界面显示，把需要显示的波形填进相应的位置即可，最多可以显示5个波形
-	   printf("{B%d:%d:%d}$",(int)RC_Velocity,(u8)Left_Figure,(u8)Right_Figure);
+		{
+			 //Send parameters to the APP, the APP is displayed in the waveform interface
+			 //发送参数到APP，APP在波形界面显示，把需要显示的波形填进相应的位置即可，最多可以显示5个波形
+			 //printf("{B%d:%d:%d}$",(int)RC_Velocity,(u8)Left_Figure,(u8)Right_Figure);
+		  printf("{2%h %h %h %h %h %h}$",Pack_SpeedData.header_0, Pack_SpeedData.speed_x, Pack_SpeedData.speed_y, Pack_SpeedData.speed_z,Pack_SpeedData.tail_0);
 	
-	 }
+		}
  		 
+		 
 }
 
 //OLED显示CCD函数

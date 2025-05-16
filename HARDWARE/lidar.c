@@ -34,7 +34,9 @@ float Follow_KP_Akm = -0.550f,Follow_KD_Akm = -0.121f,Follow_KI_Akm = -0.001f;
 
 PointDataProcessDef PointDataProcess[1200];//更新225个数据
 LiDARFrameTypeDef Pack_Data;
+SpeedFrameTypeDef Pack_SpeedData;
 PointDataProcessDef Dataprocess[1200];      //用于小车避障、跟随、走直线、ELE雷达避障的雷达数据
+SpeedDataProcessDef SpeedDataProcess; //添加多辆小车只需将这改为数组，然后调整发送和接受的数据包格式即可
 
 /**************************************************************************
 Function: LIDAR_USART_Init
@@ -92,7 +94,7 @@ void LIDAR_USART_Init(void)
 
 	// 配置串口的工作参数
 	// 配置波特率
-	USART_InitStructure.USART_BaudRate =460800;
+	USART_InitStructure.USART_BaudRate = 115200;
 	// 配置 针数据字长
 	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
 	// 配置停止位
@@ -114,6 +116,42 @@ void LIDAR_USART_Init(void)
 	USART_Cmd(UART5, ENABLE);	    
 
 }
+
+///**************************************************************************
+//Function: data_process
+//Input   : none
+//Output  : none
+//函数功能：数据处理函数
+//入口参数：无
+//返回  值：无
+//**************************************************************************/
+////完成一帧接收后进行处理
+//int data_cnt = 0;
+//void data_process(void) //数据处理
+//{
+//	int m;
+//	u32 distance_sum[32]={0};//2个点的距离和的数组
+//	float start_angle = (((u16)Pack_Data.start_angle_h<<8)+Pack_Data.start_angle_l)/100.0;//计算32个点的开始角度
+//	float end_angle = (((u16)Pack_Data.end_angle_h<<8)+Pack_Data.end_angle_l)/100.0;//计算32个点的结束角度
+//	float area_angle[32]={0};
+//	
+//	if(start_angle>end_angle)//结束角度和开始角度被0度分割的情况
+//		end_angle +=360;
+
+//	for(m=0;m<32;m++)
+//	{
+//		area_angle[m]=start_angle+(end_angle-start_angle)/32*m;
+//		if(area_angle[m]>360)  area_angle[m] -=360;
+//		
+//		distance_sum[m] +=((u16)Pack_Data.point[m].distance_h<<8)+Pack_Data.point[m].distance_l;//数据高低8位合并
+
+//		Dataprocess[data_cnt].angle=area_angle[m];
+//		Dataprocess[data_cnt++].distance=distance_sum[m];  //一帧数据为32个点
+//		if(data_cnt == 1152) data_cnt = 0;
+//	}
+//	
+//		
+//}
 
 /**************************************************************************
 Function: data_process
@@ -148,8 +186,15 @@ void data_process(void) //数据处理
 		if(data_cnt == 1152) data_cnt = 0;
 	}
 	
+	SpeedDataProcess.dir_x = Pack_SpeedData.dir_x;
+	SpeedDataProcess.speed_x = Pack_SpeedData.speed_x;
+	SpeedDataProcess.dir_y = Pack_SpeedData.dir_y;
+	SpeedDataProcess.speed_y = Pack_SpeedData.speed_y;
+	SpeedDataProcess.dir_z = Pack_SpeedData.dir_z;
+	SpeedDataProcess.speed_z = Pack_SpeedData.speed_z;
 		
 }
+
 
 /**************************************************************************
 Function: Serial port 5 receives interrupted
@@ -159,13 +204,150 @@ Output  : none
 入口参数：无
 返回  值：无
 **************************************************************************/
+//void UART5_IRQHandler(void)
+//{	
+////	static u8 Count=0;
+
+//	static u8 state = 0;//状态位	
+//	static u8 crc_sum = 0;//校验和
+//	static u8 cnt = 0;//用于一帧16个点的计数
+//	u8 temp_data;
+
+//	if(USART_GetITStatus(UART5, USART_IT_RXNE) != RESET) //接收到数据
+//	{	
+//		//USART_ClearITPendingBit(UART5, USART_IT_RXNE);
+//		temp_data=USART_ReceiveData(UART5);	
+//		switch(state)
+//		{
+//			case 0:
+//				if(temp_data == HEADER_0)//头固定
+//				{
+//					Pack_Data.header_0= temp_data;
+//					state++;
+//					//校验
+//					crc_sum += temp_data;
+//				} else state = 0,crc_sum = 0;
+//				break;
+//			case 1:
+//				if(temp_data == HEADER_1)//头固定
+//				{
+//					Pack_Data.header_1 = temp_data;
+//					state++;
+//					crc_sum += temp_data;
+//				} else state = 0,crc_sum = 0;
+//				break;
+//			case 2:
+//				if(temp_data == Length_)//字长固定
+//				{
+//					Pack_Data.ver_len = temp_data;
+//					state++;
+//					crc_sum += temp_data;
+//				} else state = 0,crc_sum = 0;
+//				break;
+//			case 3:
+//				Pack_Data.speed_h = temp_data;//速度高八位
+//				state++;
+//				crc_sum += temp_data;			
+//				break;
+//			case 4:
+//				Pack_Data.speed_l = temp_data;//速度低八位
+//				state++;
+//				crc_sum += temp_data;
+//				break;
+//			case 5:
+//				Pack_Data.start_angle_h = temp_data;//开始角度高八位
+//				state++;
+//				crc_sum += temp_data;
+//				break;
+//			case 6:
+//				Pack_Data.start_angle_l = temp_data;//开始角度低八位
+//				state++;
+//				crc_sum += temp_data;
+//				break;
+//			
+//			case 7:case 10:case 13:case 16:
+//			case 19:case 22:case 25:case 28:
+//			case 31:case 34:case 37:case 40:
+//			case 43:case 46:case 49:case 52:
+//				
+//			case 55:case 58:case 61:case 64:
+//			case 67:case 70:case 73:case 76:
+//			case 79:case 82:case 85:case 88:
+//			case 91:case 94:case 97:case 100:
+//				Pack_Data.point[cnt].distance_h = temp_data & 0x7f ;//16个点的距离数据，高字节
+//				state++;
+//				crc_sum += temp_data;
+//				break;
+//			
+//			case 8:case 11:case 14:case 17:
+//			case 20:case 23:case 26:case 29:
+//			case 32:case 35:case 38:case 41:
+//			case 44:case 47:case 50:case 53:
+//				
+//			case 56:case 59:case 62:case 65:
+//			case 68:case 71:case 74:case 77:
+//			case 80:case 83:case 86:case 89:
+//			case 92:case 95:case 98:case 101:
+//				Pack_Data.point[cnt].distance_l = temp_data;//16个点的距离数据，低字节
+//				state++;
+//				crc_sum += temp_data;
+//				break;
+//			
+//			case 9:case 12:case 15:case 18:
+//			case 21:case 24:case 27:case 30:
+//			case 33:case 36:case 39:case 42:
+//			case 45:case 48:case 51:case 54:
+//				
+//			case 57:case 60:case 63:case 66:
+//			case 69:case 72:case 75:case 78:
+//			case 81:case 84:case 87:case 90:
+//			case 93:case 96:case 99:case 102:
+//				Pack_Data.point[cnt].Strong = temp_data;//16个点的强度数据
+//				state++;
+//				crc_sum += temp_data;
+//				cnt++;
+//				break;
+//			case 103:case 104:
+//				state++;
+//				crc_sum += temp_data;
+//				cnt++;
+//				break;
+//			case 105:
+//				Pack_Data.end_angle_h = temp_data;//结束角度的高八位
+//				state++;
+//				crc_sum += temp_data;			
+//				break;
+//			case 106:
+//				Pack_Data.end_angle_l = temp_data;//结束角度的低八位
+//				state++;
+//				crc_sum += temp_data;
+//				break;
+//			case 107:
+//				Pack_Data.crc = temp_data;//校验
+//				state = 0;
+//				cnt = 0;
+//				if(crc_sum == Pack_Data.crc)
+//				{
+//					data_process();//数据处理，校验正确不断刷新存储的数据	
+//				}
+//				else 
+//				{
+//					memset(&Pack_Data,0,sizeof(Pack_Data));//清零
+//				}
+//				crc_sum = 0;//校验和清零
+//				break;
+//			default: break;
+//		}
+//	}		
+//}
+
 void UART5_IRQHandler(void)
 {	
 //	static u8 Count=0;
 
 	static u8 state = 0;//状态位	
 	static u8 crc_sum = 0;//校验和
-	static u8 cnt = 0;//用于一帧16个点的计数
+	
 	u8 temp_data;
 
 	if(USART_GetITStatus(UART5, USART_IT_RXNE) != RESET) //接收到数据
@@ -177,7 +359,7 @@ void UART5_IRQHandler(void)
 			case 0:
 				if(temp_data == HEADER_0)//头固定
 				{
-					Pack_Data.header_0= temp_data;
+					Pack_SpeedData.header_0= temp_data;
 					state++;
 					//校验
 					crc_sum += temp_data;
@@ -186,111 +368,62 @@ void UART5_IRQHandler(void)
 			case 1:
 				if(temp_data == HEADER_1)//头固定
 				{
-					Pack_Data.header_1 = temp_data;
+					Pack_SpeedData.header_1 = temp_data;
 					state++;
 					crc_sum += temp_data;
 				} else state = 0,crc_sum = 0;
 				break;
 			case 2:
-				if(temp_data == Length_)//字长固定
-				{
-					Pack_Data.ver_len = temp_data;
-					state++;
-					crc_sum += temp_data;
-				} else state = 0,crc_sum = 0;
+				Pack_SpeedData.dir_x = temp_data;
+				state++;
+				crc_sum += temp_data;
 				break;
 			case 3:
-				Pack_Data.speed_h = temp_data;//速度高八位
+				Pack_SpeedData.speed_x = temp_data;
 				state++;
-				crc_sum += temp_data;			
+				crc_sum += temp_data;
 				break;
 			case 4:
-				Pack_Data.speed_l = temp_data;//速度低八位
+				Pack_SpeedData.dir_y = temp_data;
 				state++;
 				crc_sum += temp_data;
 				break;
 			case 5:
-				Pack_Data.start_angle_h = temp_data;//开始角度高八位
+				Pack_SpeedData.speed_y = temp_data;
 				state++;
 				crc_sum += temp_data;
 				break;
 			case 6:
-				Pack_Data.start_angle_l = temp_data;//开始角度低八位
+				Pack_SpeedData.dir_z = temp_data;
 				state++;
 				crc_sum += temp_data;
 				break;
-			
-			case 7:case 10:case 13:case 16:
-			case 19:case 22:case 25:case 28:
-			case 31:case 34:case 37:case 40:
-			case 43:case 46:case 49:case 52:
-				
-			case 55:case 58:case 61:case 64:
-			case 67:case 70:case 73:case 76:
-			case 79:case 82:case 85:case 88:
-			case 91:case 94:case 97:case 100:
-				Pack_Data.point[cnt].distance_h = temp_data & 0x7f ;//16个点的距离数据，高字节
+			case 7:
+				Pack_SpeedData.speed_z = temp_data;
 				state++;
 				crc_sum += temp_data;
 				break;
-			
-			case 8:case 11:case 14:case 17:
-			case 20:case 23:case 26:case 29:
-			case 32:case 35:case 38:case 41:
-			case 44:case 47:case 50:case 53:
-				
-			case 56:case 59:case 62:case 65:
-			case 68:case 71:case 74:case 77:
-			case 80:case 83:case 86:case 89:
-			case 92:case 95:case 98:case 101:
-				Pack_Data.point[cnt].distance_l = temp_data;//16个点的距离数据，低字节
-				state++;
-				crc_sum += temp_data;
-				break;
-			
-			case 9:case 12:case 15:case 18:
-			case 21:case 24:case 27:case 30:
-			case 33:case 36:case 39:case 42:
-			case 45:case 48:case 51:case 54:
-				
-			case 57:case 60:case 63:case 66:
-			case 69:case 72:case 75:case 78:
-			case 81:case 84:case 87:case 90:
-			case 93:case 96:case 99:case 102:
-				Pack_Data.point[cnt].Strong = temp_data;//16个点的强度数据
-				state++;
-				crc_sum += temp_data;
-				cnt++;
-				break;
-			case 103:case 104:
-				state++;
-				crc_sum += temp_data;
-				cnt++;
-				break;
-			case 105:
-				Pack_Data.end_angle_h = temp_data;//结束角度的高八位
-				state++;
-				crc_sum += temp_data;			
-				break;
-			case 106:
-				Pack_Data.end_angle_l = temp_data;//结束角度的低八位
-				state++;
-				crc_sum += temp_data;
-				break;
-			case 107:
-				Pack_Data.crc = temp_data;//校验
+			case 8:
+				if(temp_data == TAIL_0)//头固定
+				{
+					Pack_SpeedData.tail_0 = temp_data;
+					state++;
+					crc_sum += temp_data;
+				} else state = 0,crc_sum = 0;
+				break;			
+			case 9:
 				state = 0;
-				cnt = 0;
-				if(crc_sum == Pack_Data.crc)
+				if(temp_data == TAIL_1)//头固定
 				{
-					data_process();//数据处理，校验正确不断刷新存储的数据	
-				}
-				else 
+					Pack_SpeedData.tail_1 = temp_data;
+					data_process();
+				} 
+				else
 				{
-					memset(&Pack_Data,0,sizeof(Pack_Data));//清零
+					memset(&Pack_SpeedData,0,sizeof(Pack_Data));//清零
 				}
-				crc_sum = 0;//校验和清零
-				break;
+				crc_sum = 0;
+				break;	
 			default: break;
 		}
 	}		

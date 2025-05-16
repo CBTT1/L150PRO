@@ -39,7 +39,7 @@ int Servo;
 
 //Default speed of remote control car, unit: mm/s
 //遥控小车的默认速度，单位：mm/s
-float RC_Velocity=500; 
+float RC_Velocity=200; 
 
 //The Tank_Car CCD related variables
 //全向小车CCD相关变量
@@ -75,8 +75,8 @@ float Move_X, Move_Y, Move_Z;
 
 //PID parameters of Speed control
 //速度控制PID参数
-float Velocity_KP=700,Velocity_KI=700; 
-
+//float Velocity_KP=700,Velocity_KI=700; 
+float Velocity_KP=600,Velocity_KI=600; 
 //Smooth control of intermediate variables, dedicated to omni-directional moving cars
 //平滑控制中间变量，全向移动小车专用
 Smooth_Control smooth_control;  
@@ -156,6 +156,8 @@ void systemInit(void)
 	//used to communicate with Bluetooth APP terminal
 	//串口2初始化，通信波特率9600，用于与蓝牙APP端通信
 	uart2_init(9600);  
+	
+	
 	
 	//ADC pin initialization, used to read the battery voltage and potentiometer gear, 
 	//potentiometer gear determines the car after the boot of the car model

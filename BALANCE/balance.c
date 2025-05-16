@@ -222,7 +222,8 @@ void Balance_task(void *pvParameters)
 					Buzzer_Alarm(0);
 			  if(Mode == APP_Control_Mode)          Get_RC();             //Handle the APP remote commands //处理APP遥控命令
 			  else if(Mode == PS2_Control_Mode)     PS2_Control();        //Handle PS2 controller commands //处理PS2手柄控制命令
-			  else if(Mode == Lidar_Avoid_Mode)     Lidar_Avoid();        //Avoid Mode //避障模式
+//			  else if(Mode == Lidar_Avoid_Mode)     Lidar_Avoid();        //Avoid Mode //避障模式
+				else if(Mode == Lidar_Avoid_Mode)     Get_Speed();        //Avoid Mode //避障模式
 			  else if(Mode == Lidar_Follow_Mode)    Lidar_Follow();       //Follow Mode //跟随模式
 				else if(Mode == Lidar_Along_Mode)     Lidar_along_wall();   //Along Mode //走直线模式
 				else if(Mode == ELE_Line_Patrol_Mode) 
@@ -510,6 +511,37 @@ void Get_RC(void)
 	Drive_Motor(Move_X,Move_Y,Move_Z);
 }
 
+void Get_Speed(void)
+{
+	u8 Flag_Move=1;
+	if(Car_Mode==Mec_Car||Car_Mode==Omni_Car) //The omnidirectional wheel moving trolley can move laterally //全向轮运动小车可以进行横向移动
+	{
+	 
+	 Move_X = SpeedDataProcess.speed_x * 100.0f;
+	 if (SpeedDataProcess.dir_x == 0x01 ) Move_X = -1 * Move_X;
+	 Move_Y = SpeedDataProcess.speed_y * 100.0f;
+	 if (SpeedDataProcess.dir_y == 0x01 ) Move_Y = -1 * Move_Y;
+	 Move_Z = SpeedDataProcess.speed_z * 1.0f;
+	 if (SpeedDataProcess.dir_z == 0x01 ) Move_Z = -1 * Move_Z;
+	 
+//	 if(Flag_Move==0)		
+//	 {	
+//		 //If no direction control instruction is available, check the steering control status
+//		 //如果无方向控制指令，检查转向控制状态
+//		 if     (Flag_Left ==1)  Move_Z= PI/2*(RC_Velocity/500); //left rotation  //左自转  
+//		 else if(Flag_Right==1)  Move_Z=-PI/2*(RC_Velocity/500); //right rotation //右自转
+//		 else 		               Move_Z=0;                       //stop           //停止
+//	 }
+	}
+	
+		//Unit conversion, mm/s -> m/s
+  //单位转换，mm/s -> m/s	
+	Move_X=Move_X/1000;       Move_Y=Move_Y/1000;         Move_Z=Move_Z;
+	
+	//Control target value is obtained and kinematics analysis is performed
+	//得到控制目标值，进行运动学分析
+	Drive_Motor(Move_X,Move_Y,Move_Z);
+}
 /**************************************************************************
 Function: Read the encoder value and calculate the wheel speed, unit m/s
 Input   : none
@@ -916,6 +948,7 @@ void Lidar_Avoid(void)
 }
 
 
+
 /**************************************************************************
 函数功能：小车跟随模式 
 入口参数：无
@@ -1016,9 +1049,11 @@ void Lidar_along_wall(void)
 	u32 distance;
 	u8 data_count = 0;			//用于滤除一写噪点的计数变量
 	
+	int j;
+	
 	Move_X = forward_velocity;  //初始速度
 	
-	for(int j=0;j<1152;j++) //225
+	for(j=0;j<1152;j++) //225
 	  {
 			if(Dataprocess[j].angle>268 && Dataprocess[j].angle<272)   //取雷达的4度的点
 			{

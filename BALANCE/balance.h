@@ -81,6 +81,7 @@ int Incremental_PI_B (float Encoder,float Target);
 int Incremental_PI_C (float Encoder,float Target);
 int Incremental_PI_D (float Encoder,float Target);
 void Get_RC(void);
+void Get_Speed(void);
 void Drive_Motor(float Vx,float Vy,float Vz);
 void Get_Velocity_Form_Encoder(void);
 void Smooth_control(float vx,float vy,float vz);

@@ -105,6 +105,63 @@ void uart2_init(u32 bound)
 	USART_Cmd(USART2, ENABLE);                     //Enable serial port 2 //使能串口2 
 }
 
+///**************************************************************************
+//Function: Serial port 5 initialization
+//Input   : none
+//Output  : none
+//函数功能：串口5初始化
+//入口参数：无
+//返回  值：无
+//**************************************************************************/
+//void uart5_init(u32 bound)
+//{  	 
+//	GPIO_InitTypeDef GPIO_InitStructure;
+//	USART_InitTypeDef USART_InitStructure;
+//	NVIC_InitTypeDef NVIC_InitStructure;
+
+//	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC | RCC_AHB1Periph_GPIOD, ENABLE);	 //Enable the gpio clock  //使能GPIO时钟
+//	RCC_APB1PeriphClockCmd(RCC_APB1Periph_UART5, ENABLE); //Enable the Usart clock //使能USART时钟
+//	
+//	GPIO_PinAFConfig(GPIOC, GPIO_PinSource12, GPIO_AF_UART5); // PC12 -> TX
+//	GPIO_PinAFConfig(GPIOD, GPIO_PinSource2,  GPIO_AF_UART5); // PD2  -> RX 
+//	
+//	// 配置 TX 引脚 PC12
+//	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;
+//	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;					//输出模式
+//	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;				//推挽输出
+//	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;			//高速50MHZ
+//	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;					//上拉	
+//	GPIO_Init(GPIOC, &GPIO_InitStructure);								//初始化
+//	
+//	// 配置 RX 引脚 PD2
+//	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
+//		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;					//输出模式
+//	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;				//推挽输出
+//	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;			//高速50MHZ
+//	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;					//上拉	
+//	GPIO_Init(GPIOD, &GPIO_InitStructure);
+//	
+//	
+//	// NVIC 中断配置（串口接收中断）
+//	NVIC_InitStructure.NVIC_IRQChannel = UART5_IRQn;
+//	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1; // 抢占优先级
+//	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;        // 子优先级
+//	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;           // 使能中断通道
+//	NVIC_Init(&NVIC_InitStructure);
+//	
+//	//USART Initialization Settings 初始化设置
+//	USART_InitStructure.USART_BaudRate = bound; //Port rate //串口波特率
+//	USART_InitStructure.USART_WordLength = USART_WordLength_8b; //The word length is 8 bit data format //字长为8位数据格式
+//	USART_InitStructure.USART_StopBits = USART_StopBits_1; //A stop bit //一个停止
+//	USART_InitStructure.USART_Parity = USART_Parity_No; //Prosaic parity bits //无奇偶校验位
+//	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None; //No hardware data flow control //无硬件数据流控制
+//	USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;	//Sending and receiving mode //收发模式
+//	USART_Init(UART5, &USART_InitStructure);      //Initialize serial port 5 //初始化串口5
+//	
+//	USART_ITConfig(UART5, USART_IT_RXNE, ENABLE); //Open the serial port to accept interrupts //开启串口接受中断
+//	USART_Cmd(UART5, ENABLE);                     //Enable serial port 5 //使能串口5
+//}
+
 /**************************************************************************
 Function: Serial port 1 receives interrupted
 Input   : none
@@ -297,6 +354,30 @@ int USART2_IRQHandler(void)
   }
   return 0;	
 }
+
+
+///**************************************************************************
+//Function: Serial port 5 receives interrupted
+//Input   : none
+//Output  : none
+//函数功能：串口5接收中断
+//入口参数：无
+//返回  值：无
+//**************************************************************************/
+//int UART5_IRQHandler(void)
+//{
+//    // 判断是否为接收中断标志位
+//    if (USART_GetITStatus(UART5, USART_IT_RXNE) != RESET)
+//    {
+//        u8 res;
+
+//				res = USART_ReceiveData(UART5); // 读取接收到的数据（自动清除中断标志）
+//			
+//        // 等待发送完成（防止覆盖发送缓冲区）
+//        // while (USART_GetFlagStatus(UART5, USART_FLAG_TC) == RESET);
+//    }
+//		return 0;
+//}
 
 /**************************************************************************
 Function: After the top 8 and low 8 figures are integrated into a short type data, the unit reduction is converted

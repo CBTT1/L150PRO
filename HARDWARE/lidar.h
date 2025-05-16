@@ -29,6 +29,8 @@ All rights reserved
 
 #define HEADER_0 0xA5
 #define HEADER_1 0x5A
+#define TAIL_0  0x3B
+#define TAIL_1  0xB3
 #define Length_ 0x6C
 
 #define POINT_PER_PACK 32
@@ -62,16 +64,43 @@ typedef struct PackData
 	uint8_t crc;
 }LiDARFrameTypeDef;
 
+typedef struct PackSpeedData
+{
+	uint8_t header_0;
+	uint8_t header_1;
+//	uint8_t ver_len;
+	uint8_t dir_x; // 00为正 01为负
+	uint8_t speed_x;
+	uint8_t dir_y;
+	uint8_t speed_y;
+	uint8_t dir_z;
+	uint8_t speed_z;
+	
+	uint8_t tail_0;
+	uint8_t tail_1;
+}SpeedFrameTypeDef;
+
 typedef struct PointDataProcess_
 {
 	uint16_t distance;
 	float angle;
 }PointDataProcessDef;
 
+typedef struct SpeedDataProcess_
+{
+	uint8_t dir_x; // 00为正 01为负
+	uint8_t speed_x;
+	uint8_t dir_y;
+	uint8_t speed_y;
+	uint8_t dir_z;
+	uint8_t speed_z;
+}SpeedDataProcessDef;
 
 extern PointDataProcessDef PointDataProcess[1200];//更新225个数据
 extern LiDARFrameTypeDef Pack_Data;
+extern SpeedFrameTypeDef Pack_SpeedData;
 extern PointDataProcessDef Dataprocess[1200];//用于小车避障、跟随、走直线、ELE雷达避障的雷达数据
+extern SpeedDataProcessDef SpeedDataProcess;
 void LIDAR_USART_Init(void);
 void  UART5_IRQHandler(void);
 void data_process(void);
