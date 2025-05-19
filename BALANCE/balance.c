@@ -228,7 +228,7 @@ void Balance_task(void *pvParameters)
 				else if(Mode == Lidar_Along_Mode)     Lidar_along_wall();   //Along Mode //×ßÖ±ÏßÄ£Ê½
 				else if(Mode == ELE_Line_Patrol_Mode) 
 				{	
-				  Get_RC_ELE();         //ELEÄ£Ê
+				  Get_RC_ELE();         //ELEÄ£„1¤7
 				}
 				else														//CCDÄ£Ê½
 					{
@@ -513,25 +513,15 @@ void Get_RC(void)
 
 void Get_Speed(void)
 {
-	u8 Flag_Move=1;
 	if(Car_Mode==Mec_Car||Car_Mode==Omni_Car) //The omnidirectional wheel moving trolley can move laterally //È«ÏòÂÖÔË¶¯Ð¡³µ¿ÉÒÔ½øÐÐºáÏòÒÆ¶¯
 	{
 	 
-	 Move_X = SpeedDataProcess.speed_x * 100.0f;
+	 Move_X = SpeedDataProcess.speed_x * 40.0f;
 	 if (SpeedDataProcess.dir_x == 0x01 ) Move_X = -1 * Move_X;
-	 Move_Y = SpeedDataProcess.speed_y * 100.0f;
+	 Move_Y = SpeedDataProcess.speed_y * 40.0f;
 	 if (SpeedDataProcess.dir_y == 0x01 ) Move_Y = -1 * Move_Y;
 	 Move_Z = SpeedDataProcess.speed_z * 1.0f;
 	 if (SpeedDataProcess.dir_z == 0x01 ) Move_Z = -1 * Move_Z;
-	 
-//	 if(Flag_Move==0)		
-//	 {	
-//		 //If no direction control instruction is available, check the steering control status
-//		 //Èç¹ûÎÞ·½Ïò¿ØÖÆÖ¸Áî£¬¼ì²é×ªÏò¿ØÖÆ×´Ì¬
-//		 if     (Flag_Left ==1)  Move_Z= PI/2*(RC_Velocity/500); //left rotation  //×ó×Ô×ª  
-//		 else if(Flag_Right==1)  Move_Z=-PI/2*(RC_Velocity/500); //right rotation //ÓÒ×Ô×ª
-//		 else 		               Move_Z=0;                       //stop           //Í£Ö¹
-//	 }
 	}
 	
 		//Unit conversion, mm/s -> m/s

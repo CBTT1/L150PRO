@@ -20,6 +20,9 @@ All rights reserved
 
 #include "system.h"
 
+//当前小车编号
+uint8_t Car_Id = 3;
+
 //Robot software fails to flag bits
 //机器人软件失能标志位
 u8 Flag_Stop=0;   

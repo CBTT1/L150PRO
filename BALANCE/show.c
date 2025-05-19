@@ -518,15 +518,18 @@ void APP_Show(void)
 			 //Send parameters to the APP and the APP will be displayed on the front page
 			 //发送参数到APP，APP在首页显示
 		   //printf("{A%d:%d:%d:%d:%d}$",(u8)Left_Figure,(u8)Right_Figure,Voltage_Show,(u8)Left_Figure,(u8)Right_Figure);
-			 printf("{1%h %h %h %h %h %h}$",Pack_SpeedData.header_0, Pack_SpeedData.speed_x, Pack_SpeedData.speed_y, Pack_SpeedData.speed_z,Pack_SpeedData.tail_0);
+			// printf("{1%d %d %d %d %d}$",Pack_SpeedData.car_count,SpeedDataProcess.speed_x, SpeedDataProcess.speed_y, SpeedDataProcess.dir_x,Pack_SpeedData.tail_0);
+			  printf("{%d %d %d}$",Pack_SpeedData.current_car.car_id,Pack_SpeedData.current_car.speed_y,Pack_SpeedData.current_car.speed_x);
+
 		 }
 		 else
 		{
 			 //Send parameters to the APP, the APP is displayed in the waveform interface
 			 //发送参数到APP，APP在波形界面显示，把需要显示的波形填进相应的位置即可，最多可以显示5个波形
 			 //printf("{B%d:%d:%d}$",(int)RC_Velocity,(u8)Left_Figure,(u8)Right_Figure);
-		  printf("{2%h %h %h %h %h %h}$",Pack_SpeedData.header_0, Pack_SpeedData.speed_x, Pack_SpeedData.speed_y, Pack_SpeedData.speed_z,Pack_SpeedData.tail_0);
-	
+		  //printf("{2%d %d %d %d %d}$",Pack_SpeedData.car_count, Pack_SpeedData.cars[Car_Id].speed_x, Pack_SpeedData.cars[Car_Id].speed_y, Pack_SpeedData.cars[Car_Id].dir_x,Pack_SpeedData.tail_0);
+//			printf("{%d %d %d}$",Pack_SpeedData.cars[Car_Id].car_id,Pack_SpeedData.tail_0, Pack_SpeedData.tail_1);
+			printf("{%d %d %d}$",Pack_SpeedData.current_car.car_id,Pack_SpeedData.current_car.speed_y,Pack_SpeedData.current_car.speed_x);
 		}
  		 
 		 

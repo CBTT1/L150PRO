@@ -66,6 +66,7 @@ typedef struct
 /****** external variable definition. When system.h is referenced in other C files, 
         other C files can also use the variable defined by system.c           ******/
 /****** 外部变量定义，当其它c文件引用system.h时，也可以使用system.c定义的变量 ******/
+extern uint8_t Car_Id;
 extern uint8_t Flag_Stop;
 extern int Divisor_Mode;
 extern uint8_t Car_Mode;

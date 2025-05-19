@@ -64,20 +64,28 @@ typedef struct PackData
 	uint8_t crc;
 }LiDARFrameTypeDef;
 
-typedef struct PackSpeedData
+// 单辆小车的数据结构
+typedef struct CarSpeedData
 {
-	uint8_t header_0;
-	uint8_t header_1;
-//	uint8_t ver_len;
-	uint8_t dir_x; // 00为正 01为负
+	uint8_t car_id;    // 小车ID (0-9)
+	uint8_t dir_x;     // 00为正 01为负
 	uint8_t speed_x;
 	uint8_t dir_y;
 	uint8_t speed_y;
 	uint8_t dir_z;
 	uint8_t speed_z;
-	
+}CarSpeedDataDef;
+
+// 数据包结构
+typedef struct PackSpeedData
+{
+	uint8_t header_0;
+	uint8_t header_1;
+	uint8_t car_count;  // 有速度的小车数量 (0-5)
+	CarSpeedDataDef current_car;  // 当前小车的数据
 	uint8_t tail_0;
 	uint8_t tail_1;
+	uint8_t crc_num;
 }SpeedFrameTypeDef;
 
 typedef struct PointDataProcess_
@@ -98,12 +106,14 @@ typedef struct SpeedDataProcess_
 
 extern PointDataProcessDef PointDataProcess[1200];//更新225个数据
 extern LiDARFrameTypeDef Pack_Data;
-extern SpeedFrameTypeDef Pack_SpeedData;
+extern SpeedFrameTypeDef Pack_SpeedData; // 一个包含所有小车数据的包
 extern PointDataProcessDef Dataprocess[1200];//用于小车避障、跟随、走直线、ELE雷达避障的雷达数据
 extern SpeedDataProcessDef SpeedDataProcess;
+extern u8 CarCount;
+
 void LIDAR_USART_Init(void);
-void  UART5_IRQHandler(void);
-void data_process(void);
+void UART5_IRQHandler(void);
+void data_process(uint8_t reset);
 
 extern float Distance_KP,Distance_KD,Distance_KI;		//距离调整PID参数
 extern float Follow_KP,Follow_KD,Follow_KI;  //转向PID

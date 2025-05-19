@@ -1,7 +1,7 @@
 Dependencies for Project 'WHEELTEC', Target 'FreeRTOS': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
 F (.\main.c)(0x6331463A)(-c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BALANCE -I ..\HARDWARE-IC:\Users\Chen\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\3.0.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -D__FPU_PRESENT="1" -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__CC_ARM-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
-I (..\BALANCE\system.h)(0x635A51FA)
+I (..\BALANCE\system.h)(0x6826F36A)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x62D916D8)
 I (..\SYSTEM\sys\sys.h)(0x62D91716)
 I (..\USER\stm32f4xx.h)(0x62D9171A)
@@ -57,7 +57,7 @@ I (..\FreeRTOS\include\timers.h)(0x62D916D6)
 I (..\FreeRTOS\include\semphr.h)(0x62D916D6)
 I (..\SYSTEM\delay\delay.h)(0x62D91716)
 I (..\BALANCE\balance.h)(0x6825A53D)
-I (..\HARDWARE\lidar.h)(0x6825BD49)
+I (..\HARDWARE\lidar.h)(0x682B14E7)
 I (..\HARDWARE\led.h)(0x6315B314)
 I (..\HARDWARE\oled.h)(0x62D916E4)
 I (..\HARDWARE\usartx.h)(0x62D916E4)
@@ -189,7 +189,7 @@ I (..\FWLIB\inc\stm32f4xx_can.h)(0x62D916C0)
 I (..\FWLIB\inc\stm32f4xx_dac.h)(0x62D916C2)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x62D916C2)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x62D916C4)
-I (..\BALANCE\system.h)(0x635A51FA)
+I (..\BALANCE\system.h)(0x6826F36A)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x62D916D8)
 I (..\SYSTEM\usart\usart.h)(0x62D91718)
 I (D:\PCsoftware\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
@@ -207,7 +207,7 @@ I (..\FreeRTOS\include\timers.h)(0x62D916D6)
 I (..\FreeRTOS\include\semphr.h)(0x62D916D6)
 I (..\SYSTEM\delay\delay.h)(0x62D91716)
 I (..\BALANCE\balance.h)(0x6825A53D)
-I (..\HARDWARE\lidar.h)(0x6825BD49)
+I (..\HARDWARE\lidar.h)(0x682B14E7)
 I (..\HARDWARE\led.h)(0x6315B314)
 I (..\HARDWARE\oled.h)(0x62D916E4)
 I (..\HARDWARE\usartx.h)(0x62D916E4)
@@ -259,7 +259,7 @@ I (..\FWLIB\inc\stm32f4xx_can.h)(0x62D916C0)
 I (..\FWLIB\inc\stm32f4xx_dac.h)(0x62D916C2)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x62D916C2)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x62D916C4)
-I (..\BALANCE\system.h)(0x635A51FA)
+I (..\BALANCE\system.h)(0x6826F36A)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x62D916D8)
 I (..\SYSTEM\usart\usart.h)(0x62D91718)
 I (D:\PCsoftware\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
@@ -277,7 +277,7 @@ I (..\FreeRTOS\include\timers.h)(0x62D916D6)
 I (..\FreeRTOS\include\semphr.h)(0x62D916D6)
 I (..\SYSTEM\delay\delay.h)(0x62D91716)
 I (..\BALANCE\balance.h)(0x6825A53D)
-I (..\HARDWARE\lidar.h)(0x6825BD49)
+I (..\HARDWARE\lidar.h)(0x682B14E7)
 I (..\HARDWARE\led.h)(0x6315B314)
 I (..\HARDWARE\oled.h)(0x62D916E4)
 I (..\HARDWARE\usartx.h)(0x62D916E4)
@@ -329,7 +329,7 @@ I (..\FWLIB\inc\stm32f4xx_can.h)(0x62D916C0)
 I (..\FWLIB\inc\stm32f4xx_dac.h)(0x62D916C2)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x62D916C2)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x62D916C4)
-I (..\BALANCE\system.h)(0x635A51FA)
+I (..\BALANCE\system.h)(0x6826F36A)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x62D916D8)
 I (..\SYSTEM\usart\usart.h)(0x62D91718)
 I (D:\PCsoftware\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
@@ -347,7 +347,7 @@ I (..\FreeRTOS\include\timers.h)(0x62D916D6)
 I (..\FreeRTOS\include\semphr.h)(0x62D916D6)
 I (..\SYSTEM\delay\delay.h)(0x62D91716)
 I (..\BALANCE\balance.h)(0x6825A53D)
-I (..\HARDWARE\lidar.h)(0x6825BD49)
+I (..\HARDWARE\lidar.h)(0x682B14E7)
 I (..\HARDWARE\led.h)(0x6315B314)
 I (..\HARDWARE\oled.h)(0x62D916E4)
 I (..\HARDWARE\usartx.h)(0x62D916E4)
@@ -399,7 +399,7 @@ I (..\FWLIB\inc\stm32f4xx_can.h)(0x62D916C0)
 I (..\FWLIB\inc\stm32f4xx_dac.h)(0x62D916C2)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x62D916C2)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x62D916C4)
-I (..\BALANCE\system.h)(0x635A51FA)
+I (..\BALANCE\system.h)(0x6826F36A)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x62D916D8)
 I (..\SYSTEM\usart\usart.h)(0x62D91718)
 I (D:\PCsoftware\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
@@ -417,7 +417,7 @@ I (..\FreeRTOS\include\timers.h)(0x62D916D6)
 I (..\FreeRTOS\include\semphr.h)(0x62D916D6)
 I (..\SYSTEM\delay\delay.h)(0x62D91716)
 I (..\BALANCE\balance.h)(0x6825A53D)
-I (..\HARDWARE\lidar.h)(0x6825BD49)
+I (..\HARDWARE\lidar.h)(0x682B14E7)
 I (..\HARDWARE\oled.h)(0x62D916E4)
 I (..\HARDWARE\usartx.h)(0x62D916E4)
 I (..\HARDWARE\adc.h)(0x63462518)
@@ -431,7 +431,7 @@ I (D:\PCsoftware\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x60252374)
 I (D:\PCsoftware\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x60252376)
 F (..\HARDWARE\motor.c)(0x62D916E2)(-c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BALANCE -I ..\HARDWARE-IC:\Users\Chen\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\3.0.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -D__FPU_PRESENT="1" -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__CC_ARM-o ..\obj\motor.o --omf_browse ..\obj\motor.crf --depend ..\obj\motor.d)
 I (..\HARDWARE\motor.h)(0x62D916E2)
-I (..\BALANCE\system.h)(0x635A51FA)
+I (..\BALANCE\system.h)(0x6826F36A)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x62D916D8)
 I (..\SYSTEM\sys\sys.h)(0x62D91716)
 I (..\USER\stm32f4xx.h)(0x62D9171A)
@@ -487,7 +487,7 @@ I (..\FreeRTOS\include\timers.h)(0x62D916D6)
 I (..\FreeRTOS\include\semphr.h)(0x62D916D6)
 I (..\SYSTEM\delay\delay.h)(0x62D91716)
 I (..\BALANCE\balance.h)(0x6825A53D)
-I (..\HARDWARE\lidar.h)(0x6825BD49)
+I (..\HARDWARE\lidar.h)(0x682B14E7)
 I (..\HARDWARE\led.h)(0x6315B314)
 I (..\HARDWARE\oled.h)(0x62D916E4)
 I (..\HARDWARE\usartx.h)(0x62D916E4)
@@ -539,7 +539,7 @@ I (..\FWLIB\inc\stm32f4xx_can.h)(0x62D916C0)
 I (..\FWLIB\inc\stm32f4xx_dac.h)(0x62D916C2)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x62D916C2)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x62D916C4)
-I (..\BALANCE\system.h)(0x635A51FA)
+I (..\BALANCE\system.h)(0x6826F36A)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x62D916D8)
 I (..\SYSTEM\usart\usart.h)(0x62D91718)
 I (D:\PCsoftware\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
@@ -557,7 +557,7 @@ I (..\FreeRTOS\include\timers.h)(0x62D916D6)
 I (..\FreeRTOS\include\semphr.h)(0x62D916D6)
 I (..\SYSTEM\delay\delay.h)(0x62D91716)
 I (..\BALANCE\balance.h)(0x6825A53D)
-I (..\HARDWARE\lidar.h)(0x6825BD49)
+I (..\HARDWARE\lidar.h)(0x682B14E7)
 I (..\HARDWARE\led.h)(0x6315B314)
 I (..\HARDWARE\usartx.h)(0x62D916E4)
 I (..\HARDWARE\adc.h)(0x63462518)
@@ -611,7 +611,7 @@ I (..\FWLIB\inc\stm32f4xx_can.h)(0x62D916C0)
 I (..\FWLIB\inc\stm32f4xx_dac.h)(0x62D916C2)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x62D916C2)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x62D916C4)
-I (..\BALANCE\system.h)(0x635A51FA)
+I (..\BALANCE\system.h)(0x6826F36A)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x62D916D8)
 I (..\SYSTEM\usart\usart.h)(0x62D91718)
 I (..\FreeRTOS\include\FreeRTOS.h)(0x62D916D2)
@@ -628,7 +628,7 @@ I (..\FreeRTOS\include\timers.h)(0x62D916D6)
 I (..\FreeRTOS\include\semphr.h)(0x62D916D6)
 I (..\SYSTEM\delay\delay.h)(0x62D91716)
 I (..\BALANCE\balance.h)(0x6825A53D)
-I (..\HARDWARE\lidar.h)(0x6825BD49)
+I (..\HARDWARE\lidar.h)(0x682B14E7)
 I (..\HARDWARE\led.h)(0x6315B314)
 I (..\HARDWARE\oled.h)(0x62D916E4)
 I (..\HARDWARE\adc.h)(0x63462518)
@@ -640,9 +640,9 @@ I (..\HARDWARE\pstwo.h)(0x632AC384)
 I (..\BALANCE\robot_select_init.h)(0x63632CF8)
 I (D:\PCsoftware\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x60252374)
 I (D:\PCsoftware\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x60252376)
-F (..\HARDWARE\lidar.c)(0x68261186)(-c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BALANCE -I ..\HARDWARE-IC:\Users\Chen\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\3.0.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -D__FPU_PRESENT="1" -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__CC_ARM-o ..\obj\lidar.o --omf_browse ..\obj\lidar.crf --depend ..\obj\lidar.d)
-I (..\HARDWARE\lidar.h)(0x6825BD49)
-I (..\BALANCE\system.h)(0x635A51FA)
+F (..\HARDWARE\lidar.c)(0x682B15B0)(-c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BALANCE -I ..\HARDWARE-IC:\Users\Chen\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\3.0.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -D__FPU_PRESENT="1" -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__CC_ARM-o ..\obj\lidar.o --omf_browse ..\obj\lidar.crf --depend ..\obj\lidar.d)
+I (..\HARDWARE\lidar.h)(0x682B14E7)
+I (..\BALANCE\system.h)(0x6826F36A)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x62D916D8)
 I (..\SYSTEM\sys\sys.h)(0x62D91716)
 I (..\USER\stm32f4xx.h)(0x62D9171A)
@@ -712,7 +712,7 @@ I (D:\PCsoftware\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x60252374)
 I (D:\PCsoftware\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x60252376)
 F (..\HARDWARE\pstwo.c)(0x63325A08)(-c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BALANCE -I ..\HARDWARE-IC:\Users\Chen\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\3.0.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -D__FPU_PRESENT="1" -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__CC_ARM-o ..\obj\pstwo.o --omf_browse ..\obj\pstwo.crf --depend ..\obj\pstwo.d)
 I (..\HARDWARE\pstwo.h)(0x632AC384)
-I (..\BALANCE\system.h)(0x635A51FA)
+I (..\BALANCE\system.h)(0x6826F36A)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x62D916D8)
 I (..\SYSTEM\sys\sys.h)(0x62D91716)
 I (..\USER\stm32f4xx.h)(0x62D9171A)
@@ -768,7 +768,7 @@ I (..\FreeRTOS\include\timers.h)(0x62D916D6)
 I (..\FreeRTOS\include\semphr.h)(0x62D916D6)
 I (..\SYSTEM\delay\delay.h)(0x62D91716)
 I (..\BALANCE\balance.h)(0x6825A53D)
-I (..\HARDWARE\lidar.h)(0x6825BD49)
+I (..\HARDWARE\lidar.h)(0x682B14E7)
 I (..\HARDWARE\led.h)(0x6315B314)
 I (..\HARDWARE\oled.h)(0x62D916E4)
 I (..\HARDWARE\usartx.h)(0x62D916E4)
@@ -1684,8 +1684,8 @@ I (..\FreeRTOS\portable\RVDS\ARM_CM4F\portmacro.h)(0x62D916DE)
 I (..\FreeRTOS\include\mpu_wrappers.h)(0x62D916D4)
 I (..\FreeRTOS\include\task.h)(0x62D916D6)
 I (..\FreeRTOS\include\list.h)(0x62D916D4)
-F (..\BALANCE\system.c)(0x68269BE3)(-c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BALANCE -I ..\HARDWARE-IC:\Users\Chen\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\3.0.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -D__FPU_PRESENT="1" -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__CC_ARM-o ..\obj\system.o --omf_browse ..\obj\system.crf --depend ..\obj\system.d)
-I (..\BALANCE\system.h)(0x635A51FA)
+F (..\BALANCE\system.c)(0x682B27FC)(-c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BALANCE -I ..\HARDWARE-IC:\Users\Chen\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\3.0.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -D__FPU_PRESENT="1" -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__CC_ARM-o ..\obj\system.o --omf_browse ..\obj\system.crf --depend ..\obj\system.d)
+I (..\BALANCE\system.h)(0x6826F36A)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x62D916D8)
 I (..\SYSTEM\sys\sys.h)(0x62D91716)
 I (..\USER\stm32f4xx.h)(0x62D9171A)
@@ -1741,7 +1741,7 @@ I (..\FreeRTOS\include\timers.h)(0x62D916D6)
 I (..\FreeRTOS\include\semphr.h)(0x62D916D6)
 I (..\SYSTEM\delay\delay.h)(0x62D91716)
 I (..\BALANCE\balance.h)(0x6825A53D)
-I (..\HARDWARE\lidar.h)(0x6825BD49)
+I (..\HARDWARE\lidar.h)(0x682B14E7)
 I (..\HARDWARE\led.h)(0x6315B314)
 I (..\HARDWARE\oled.h)(0x62D916E4)
 I (..\HARDWARE\usartx.h)(0x62D916E4)
@@ -1754,7 +1754,7 @@ I (..\HARDWARE\pstwo.h)(0x632AC384)
 I (..\BALANCE\robot_select_init.h)(0x63632CF8)
 I (D:\PCsoftware\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x60252374)
 I (D:\PCsoftware\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x60252376)
-F (..\BALANCE\balance.c)(0x6825BF9A)(-c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BALANCE -I ..\HARDWARE-IC:\Users\Chen\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\3.0.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -D__FPU_PRESENT="1" -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__CC_ARM-o ..\obj\balance.o --omf_browse ..\obj\balance.crf --depend ..\obj\balance.d)
+F (..\BALANCE\balance.c)(0x682B27B3)(-c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BALANCE -I ..\HARDWARE-IC:\Users\Chen\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\3.0.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -D__FPU_PRESENT="1" -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__CC_ARM-o ..\obj\balance.o --omf_browse ..\obj\balance.crf --depend ..\obj\balance.d)
 I (..\BALANCE\balance.h)(0x6825A53D)
 I (..\SYSTEM\sys\sys.h)(0x62D91716)
 I (..\USER\stm32f4xx.h)(0x62D9171A)
@@ -1794,7 +1794,7 @@ I (..\FWLIB\inc\stm32f4xx_can.h)(0x62D916C0)
 I (..\FWLIB\inc\stm32f4xx_dac.h)(0x62D916C2)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x62D916C2)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x62D916C4)
-I (..\BALANCE\system.h)(0x635A51FA)
+I (..\BALANCE\system.h)(0x6826F36A)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x62D916D8)
 I (..\SYSTEM\usart\usart.h)(0x62D91718)
 I (D:\PCsoftware\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
@@ -1819,7 +1819,7 @@ I (..\HARDWARE\motor.h)(0x62D916E2)
 I (..\HARDWARE\encoder.h)(0x62D916E2)
 I (..\BALANCE\show.h)(0x62D916BC)
 I (..\HARDWARE\key.h)(0x633270BA)
-I (..\HARDWARE\lidar.h)(0x6825BD49)
+I (..\HARDWARE\lidar.h)(0x682B14E7)
 I (..\HARDWARE\pstwo.h)(0x632AC384)
 I (..\BALANCE\robot_select_init.h)(0x63632CF8)
 I (D:\PCsoftware\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x60252374)
@@ -1864,7 +1864,7 @@ I (..\FWLIB\inc\stm32f4xx_can.h)(0x62D916C0)
 I (..\FWLIB\inc\stm32f4xx_dac.h)(0x62D916C2)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x62D916C2)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x62D916C4)
-I (..\BALANCE\system.h)(0x635A51FA)
+I (..\BALANCE\system.h)(0x6826F36A)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x62D916D8)
 I (..\SYSTEM\usart\usart.h)(0x62D91718)
 I (D:\PCsoftware\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
@@ -1882,7 +1882,7 @@ I (..\FreeRTOS\include\timers.h)(0x62D916D6)
 I (..\FreeRTOS\include\semphr.h)(0x62D916D6)
 I (..\SYSTEM\delay\delay.h)(0x62D91716)
 I (..\BALANCE\balance.h)(0x6825A53D)
-I (..\HARDWARE\lidar.h)(0x6825BD49)
+I (..\HARDWARE\lidar.h)(0x682B14E7)
 I (..\HARDWARE\led.h)(0x6315B314)
 I (..\HARDWARE\oled.h)(0x62D916E4)
 I (..\HARDWARE\usartx.h)(0x62D916E4)
@@ -1894,7 +1894,7 @@ I (..\HARDWARE\key.h)(0x633270BA)
 I (..\HARDWARE\pstwo.h)(0x632AC384)
 I (D:\PCsoftware\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x60252374)
 I (D:\PCsoftware\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x60252376)
-F (..\BALANCE\show.c)(0x6825B8D0)(-c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BALANCE -I ..\HARDWARE-IC:\Users\Chen\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\3.0.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -D__FPU_PRESENT="1" -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__CC_ARM-o ..\obj\show.o --omf_browse ..\obj\show.crf --depend ..\obj\show.d)
+F (..\BALANCE\show.c)(0x682B10CA)(-c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BALANCE -I ..\HARDWARE-IC:\Users\Chen\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\3.0.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -D__FPU_PRESENT="1" -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__CC_ARM-o ..\obj\show.o --omf_browse ..\obj\show.crf --depend ..\obj\show.d)
 I (..\BALANCE\show.h)(0x62D916BC)
 I (..\SYSTEM\sys\sys.h)(0x62D91716)
 I (..\USER\stm32f4xx.h)(0x62D9171A)
@@ -1935,7 +1935,7 @@ I (..\FWLIB\inc\stm32f4xx_dac.h)(0x62D916C2)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x62D916C2)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x62D916C4)
 I (..\HARDWARE\oled.h)(0x62D916E4)
-I (..\BALANCE\system.h)(0x635A51FA)
+I (..\BALANCE\system.h)(0x6826F36A)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x62D916D8)
 I (..\SYSTEM\usart\usart.h)(0x62D91718)
 I (D:\PCsoftware\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
@@ -1953,7 +1953,7 @@ I (..\FreeRTOS\include\timers.h)(0x62D916D6)
 I (..\FreeRTOS\include\semphr.h)(0x62D916D6)
 I (..\SYSTEM\delay\delay.h)(0x62D91716)
 I (..\BALANCE\balance.h)(0x6825A53D)
-I (..\HARDWARE\lidar.h)(0x6825BD49)
+I (..\HARDWARE\lidar.h)(0x682B14E7)
 I (..\HARDWARE\led.h)(0x6315B314)
 I (..\HARDWARE\usartx.h)(0x62D916E4)
 I (..\HARDWARE\adc.h)(0x63462518)
